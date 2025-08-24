@@ -1,36 +1,175 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📘 Notion Clone
 
-## Getting Started
+Aplikasi pencatatan modern dan kaya fitur yang dibangun dengan **Next.js**, terinspirasi oleh Notion. Aplikasi ini menyediakan serangkaian alat komprehensif untuk membuat, mengorganisir, dan mengelola catatan Anda dalam antarmuka yang intuitif dan elegan.
 
-First, run the development server:
+---
+
+## 🌟 Fitur Utama
+
+### 🔑 Fungsionalitas Inti
+
+- **Autentikasi Aman**  
+  Sistem registrasi dan login pengguna yang kuat dengan manajemen sesi.
+
+- **Editor Teks Kaya (WYSIWYG)**  
+  Didukung oleh **TipTap**, mendukung *headings*, **bold**, *italic*, daftar, *checklists*, *blockquotes*, dan lainnya.
+
+- **Catatan Hierarkis**  
+  Buat dokumen bersarang tanpa batas dengan sidebar *drag-and-drop*.
+
+- **Penyimpanan Real-time**  
+  Semua perubahan tersimpan otomatis menggunakan mekanisme debounce.
+
+### 📂 Organisasi & Produktivitas
+
+- **Tampilan Papan Kanban**  
+  Visualisasikan dan kelola sub-halaman dalam tampilan *drag-and-drop Kanban*, diatur berdasarkan status.
+
+- **Properti Catatan Lanjutan**  
+  Tambahkan metadata seperti:
+  - Status: To Do, In Progress, Done
+  - Prioritas: Low, Medium, High
+  - Tanggal Jatuh Tempo
+  - Tag
+
+- **Sistem Tag Fleksibel**  
+  Buat, kelola, dan tetapkan tag berwarna untuk kategorisasi.
+
+- **Filter Lanjutan**  
+  Saring catatan berdasarkan status, prioritas, atau tag di sidebar.
+
+- **Sistem Sampah (Arsip)**  
+  Arsipkan catatan alih-alih menghapus permanen. Bisa dikembalikan atau dihapus selamanya.
+
+### 💡 UI/UX
+
+- **Antarmuka Modern Mirip Notion**  
+  Desain bersih, minimalis, dan berfokus pada produktivitas.
+
+- **Sidebar yang Dapat Diubah Ukurannya**  
+  Sesuaikan lebar sidebar sesuai preferensi.
+
+- **Desain Sepenuhnya Responsif**  
+  Mendukung desktop, tablet, dan perangkat seluler.
+
+- **Tema Terang & Gelap**  
+  Menyesuaikan tema berdasarkan preferensi sistem pengguna.
+
+- **Status Memuat & Umpan Balik**  
+  Notifikasi toast dan kerangka loading yang halus.
+
+---
+
+## 🛠️ Tumpukan Teknologi
+
+- **Framework:** Next.js 15+ (App Router)
+- **Styling:** Tailwind CSS 3, shadcn/ui
+- **Manajemen State UI:** Zustand
+- **Manajemen Data & Caching:** TanStack Query v5 (React Query)
+- **Formulir & Validasi:** React Hook Form + Zod
+- **Editor:** TipTap
+- **Drag & Drop:** Dnd Kit
+- **HTTP Client:** Axios
+- **Ikon:** Lucide React
+- **Bahasa:** TypeScript
+
+---
+
+## 📦 Instalasi
+
+### 1. Clone Repositori
+
+```bash
+git clone <url-repositori>
+cd notion-clone-client
+````
+
+### 2. Instal Dependensi
+
+```bash
+npm install
+```
+
+### 3. Siapkan Environment Variables
+
+Buat file `.env.local` di root:
+
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api
+```
+
+### 4. Jalankan Server Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 5. Buka di Browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Akses: [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Integrasi API
 
-To learn more about Next.js, take a look at the following resources:
+Pastikan backend Anda berjalan dan mendukung endpoint berikut:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔐 Autentikasi
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* `POST /auth/register`
+* `POST /auth/login`
+* `POST /auth/logout`
+* `GET /auth/me`
 
-## Deploy on Vercel
+### 📄 Catatan (Notes)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* `GET /notes` – Mendapatkan semua catatan (bisa difilter)
+* `POST /notes` – Membuat catatan baru
+* `GET /notes/archived` – Mendapatkan catatan diarsipkan
+* `GET /notes/:id` – Mendapatkan detail catatan (termasuk children & tags)
+* `PUT /notes/:id` – Memperbarui catatan
+* `DELETE /notes/:id` – Mengarsipkan catatan
+* `POST /notes/:id/restore` – Mengembalikan catatan dari arsip
+* `DELETE /notes/:id/permanent` – Menghapus permanen
+* `PATCH /notes/reorder` – Mengurutkan ulang catatan
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🏷️ Tag
+
+* `GET /tags` – Mendapatkan semua tag
+* `POST /tags` – Membuat tag baru
+* `PUT /tags/:id` – Memperbarui tag
+* `DELETE /tags/:id` – Menghapus tag
+
+---
+
+## 🤝 Berkontribusi
+
+1. **Fork** repositori ini
+2. Buat branch baru:
+
+   ```bash
+   git checkout -b feature/fitur-keren-anda
+   ```
+3. Commit perubahan Anda:
+
+   ```bash
+   git commit -m 'Menambahkan fitur keren'
+   ```
+4. Push ke branch:
+
+   ```bash
+   git push origin feature/fitur-keren-anda
+   ```
+5. Buka **Pull Request**
+
+---
+
+## 📝 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+
+---
+
+**Selamat membuat kode! 🚀**
+
+```
