@@ -60,7 +60,7 @@ Aplikasi pencatatan modern dan kaya fitur yang dibangun dengan **Next.js**, teri
 
 ---
 
-## 🛠️ Tumpukan Teknologi
+## 🛠️ Teknologi
 
 - **Framework:** Next.js 15+ (App Router)
 - **Styling:** Tailwind CSS 3, shadcn/ui
