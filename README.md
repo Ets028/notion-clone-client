@@ -80,7 +80,7 @@ Aplikasi pencatatan modern dan kaya fitur yang dibangun dengan **Next.js**, teri
 ### 1. Clone Repositori
 
 ```bash
-git clone [https://github.com/Ets028/notion-clone-client.git](https://github.com/Ets028/notion-clone-client.git)
+git clone https://github.com/Ets028/notion-clone-client.git
 cd notion-clone-client
 ````
 
