@@ -168,8 +168,4 @@ Pastikan backend Anda berjalan dan mendukung endpoint berikut:
 
 Proyek ini dilisensikan di bawah [MIT License](LICENSE).
 
----
-
-**Selamat membuat kode! 🚀**
-
 ```
